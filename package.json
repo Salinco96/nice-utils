@@ -1,16 +1,28 @@
 {
   "name": "@salinco/nice-utils",
   "version": "0.1.0",
-  "author": "Salinco96 <loicnico96b@gmail.com>",
-  "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "author": "Salinco96 <loicnico96b@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/Salinco96/nice-utils#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Salinco96/nice-utils.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Salinco96/nice-utils/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
   "packageManager": "yarn@4.5.2",
   "scripts": {
     "build": "rimraf dist && tsc -p tsconfig.build.json",
     "lint": "biome check --fix",
     "postinstall": "husky install",
     "precommit": "lint-staged",
+    "release": "npm publish --access public",
     "test": "jest",
     "test-dev": "jest --watch",
     "typecheck": "tsc --noEmit"
