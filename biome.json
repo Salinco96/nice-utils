@@ -1,0 +1,70 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "files": {
+    "ignore": [".yarn"]
+  },
+  "formatter": {
+    "formatWithErrors": true,
+    "lineWidth": 80,
+    "useEditorconfig": true
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "asNeeded",
+      "semicolons": "asNeeded"
+    }
+  },
+  "json": {
+    "parser": {
+      "allowTrailingCommas": true
+    }
+  },
+  "linter": {
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noUselessStringConcat": "error",
+        "noUselessUndefinedInitialization": "error",
+        "noVoid": "error",
+        "useDateNow": "error"
+      },
+      "correctness": {
+        "noConstantMathMinMaxClamp": "error",
+        "noUnusedImports": "error",
+        "noUnusedPrivateClassMembers": "error",
+        "useArrayLiterals": "error"
+      },
+      "nursery": {
+        "noIrregularWhitespace": "error",
+        "noOctalEscape": "error",
+        "noUselessEscapeInRegex": "error",
+        "useConsistentCurlyBraces": "error"
+      },
+      "performance": {
+        "noReExportAll": "error"
+      },
+      "style": {
+        "noYodaExpression": "error",
+        "useBlockStatements": "error",
+        "useCollapsedElseIf": "error",
+        "useForOf": "error",
+        "useThrowOnlyError": "error"
+      },
+      "suspicious": {
+        "noConsole": "error",
+        "noEmptyBlockStatements": "error",
+        "noEvolvingTypes": "error",
+        "noShadowRestrictedNames": "off",
+        "useErrorMessage": "error"
+      }
+    }
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  }
+}
