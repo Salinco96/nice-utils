@@ -1,9 +1,8 @@
-import type { Primitive } from "@/types/types"
-import { difference } from "./difference"
+import { unique } from "./unique"
 
-export function union<T extends Primitive>(
+export function union<T>(
 	array: ReadonlyArray<T>,
-	values: ReadonlyArray<T>,
+	other: ReadonlyArray<T>,
 ): T[] {
-	return array.concat(difference(values, array))
+	return unique(array.concat(other))
 }

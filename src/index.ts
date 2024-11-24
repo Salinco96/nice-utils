@@ -20,6 +20,7 @@ export { toArray } from "./arrays/toArray"
 export { toSet } from "./arrays/toSet"
 export { toTypeArray } from "./arrays/toTypeArray"
 export { union } from "./arrays/union"
+export { unionBy } from "./arrays/unionBy"
 export { unique } from "./arrays/unique"
 export { uniqueBy } from "./arrays/uniqueBy"
 
