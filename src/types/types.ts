@@ -20,6 +20,13 @@ export type Hex = `0x${string}`
 
 export type Maybe<T> = T | undefined
 
+export type MaybeFunction<
+	T,
+	// biome-ignore lint/suspicious/noExplicitAny: generic args
+	Q extends any[] = [],
+	// biome-ignore lint/complexity/noBannedTypes: generic function
+> = Exclude<T, Function> | ((...args: Q) => T)
+
 export type Primitive = bigint | boolean | number | string | null | undefined
 
 export type ToString<T extends Primitive> = `${T}`
