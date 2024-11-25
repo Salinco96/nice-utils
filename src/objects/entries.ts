@@ -1,4 +1,4 @@
-import type { ToString } from "@/types/types"
+import type { ToString } from "../types/types"
 
 export function entries<K extends string, T>(
 	object: Readonly<Partial<Record<K, T>>>,

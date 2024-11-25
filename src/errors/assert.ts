@@ -6,9 +6,9 @@
  */
 export function assert(
 	condition: boolean,
-	message?: string,
+	message: string = "Assertion failed",
 ): asserts condition {
 	if (!condition) {
-		throw Error(message ?? "Assertion failed")
+		throw Error(message)
 	}
 }

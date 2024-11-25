@@ -5,7 +5,7 @@ const config: Config = {
 
 	// TypeScript
 	moduleNameMapper: {
-		"@/(.*)": "<rootDir>/src/$1",
+		"../(.*)": "<rootDir>/src/$1",
 	},
 	transform: {
 		"^.+[.]ts$": ["ts-jest", {}],

@@ -1,4 +1,4 @@
-import { toTypeArray } from "@/arrays/toTypeArray"
+import { toTypeArray } from "../../src/arrays/toTypeArray"
 
 describe("toTypeArray", () => {
 	it("returns directly the input array (no copy)", () => {

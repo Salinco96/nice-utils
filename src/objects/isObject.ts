@@ -1,4 +1,4 @@
-import type { AnyRecord } from "./types"
+import type { AnyRecord } from "../types/types"
 
 /**
  * Checks that a value is an object.

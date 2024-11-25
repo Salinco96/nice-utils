@@ -1,4 +1,4 @@
-import type { Constructor } from "@/types/types"
+import type { Constructor } from "../types/types"
 
 export function toTypeArray<T, R extends ArrayLike<T> = ArrayLike<T>>(
 	iterable: Iterable<T>,

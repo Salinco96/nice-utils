@@ -1,4 +1,4 @@
-import { mapDefined } from "@/arrays/mapDefined"
+import { mapDefined } from "../../src/arrays/mapDefined"
 
 describe("mapDefined", () => {
 	const array: { test?: string | null }[] = [

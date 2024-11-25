@@ -1,5 +1,5 @@
-import { resolve } from "@/functions/resolve"
-import type { MaybeFunction } from "@/types/types"
+import { resolve } from "../functions/resolve"
+import type { MaybeFunction } from "../types/types"
 
 export function fill<T>(
 	length: number,

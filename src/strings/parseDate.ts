@@ -1,4 +1,4 @@
-import { assert } from "@/errors/assert"
+import { assert } from "../errors/assert"
 
 export function parseDate(value: string): Date {
 	const date = new Date(value)

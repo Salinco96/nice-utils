@@ -1,4 +1,4 @@
-import type { AnyRecord } from "@/types/types"
+import type { AnyRecord } from "../types/types"
 import { size } from "./size"
 
 export function isEmpty(object: AnyRecord): boolean {

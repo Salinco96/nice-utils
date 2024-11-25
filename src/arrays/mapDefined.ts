@@ -1,4 +1,4 @@
-import { isDefined } from "@/types/isDefined"
+import { isDefined } from "../types/isDefined"
 import { toArray } from "./toArray"
 
 export function mapDefined<T, R = T>(

@@ -1,8 +1,9 @@
 {
   "name": "@salinco/nice-utils",
-  "version": "1.0.0-alpha.9",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "version": "1.0.0-alpha.10",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/esm/index.d.ts",
   "files": ["dist"],
   "sideEffects": false,
   "author": "Salinco96 <loicnico96b@gmail.com>",
@@ -17,7 +18,9 @@
   },
   "packageManager": "yarn@4.5.2",
   "scripts": {
-    "build": "rimraf dist && tsc --project tsconfig.build.json && tsc-alias --project tsconfig.build.json",
+    "build": "rimraf dist && yarn build:esm && yarn build:cjs",
+    "build:cjs": "tsc --project tsconfig.build.json --outDir dist/cjs --module commonjs --declaration false && tsc-alias --outDir dist/cjs",
+    "build:esm": "tsc --project tsconfig.build.json --outDir dist/esm && tsc-alias --outDir dist/esm",
     "lint": "biome check --fix",
     "precommit": "lint-staged",
     "release": "yarn build && npm publish --access public",

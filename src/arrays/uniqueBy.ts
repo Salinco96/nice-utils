@@ -1,4 +1,4 @@
-import type { Primitive } from "@/types/types"
+import type { Primitive } from "../types/types"
 
 export function uniqueBy<T, S extends Primitive>(
 	array: ReadonlyArray<T>,

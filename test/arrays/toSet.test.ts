@@ -1,4 +1,4 @@
-import { toSet } from "@/arrays/toSet"
+import { toSet } from "../../src/arrays/toSet"
 
 describe("toSet", () => {
 	it("returns directly the input Set (no copy)", () => {

@@ -1,4 +1,4 @@
-import type { MaybeFunction } from "@/types/types"
+import type { MaybeFunction } from "../types/types"
 
 export function resolve<
 	T,
