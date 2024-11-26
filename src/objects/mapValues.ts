@@ -7,7 +7,12 @@ export function mapValues<K extends string, T, R = T>(
 	return reduce<K, T, Partial<Record<K, R>>>(
 		object,
 		(result, value, key) => {
-			result[key] = fn(value, key)
+			const newValue = fn(value, key)
+
+			if (newValue !== undefined) {
+				result[key] = newValue
+			}
+
 			return result
 		},
 		{},
