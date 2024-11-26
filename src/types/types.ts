@@ -3,6 +3,8 @@ export type AbstractConstructor<
 	Q extends AnyParameters = AnyParameters,
 > = abstract new (...args: Q) => T
 
+export type AnyArray = ReadonlyArray<unknown>
+
 export type AnyFunction = (...args: AnyParameters) => unknown
 
 // biome-ignore lint/suspicious/noExplicitAny: generic args

@@ -1,4 +1,15 @@
+import type { ToString } from "../types/types"
 import { reduce } from "./reduce"
+
+export function filterValues<K extends number | string, T>(
+	object: Readonly<Partial<Record<K, T>>>,
+	fn: (value: T, key: ToString<K>) => boolean,
+): Partial<Record<K, T>>
+
+export function filterValues<K extends string, T>(
+	object: Readonly<Partial<Record<K, T>>>,
+	fn: (value: T, key: K) => boolean,
+): Partial<Record<K, T>>
 
 export function filterValues<K extends string, T>(
 	object: Readonly<Partial<Record<K, T>>>,
