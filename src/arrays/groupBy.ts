@@ -5,10 +5,10 @@ export function groupBy<T, K extends number | string>(
 	return items.reduce<Partial<Record<K, T[]>>>((result, item, index) => {
 		const key = fn(item, index)
 		if (key !== null) {
-			if (result[key] === undefined) {
-				result[key] = [item]
-			} else {
+			if (result[key]) {
 				result[key].push(item)
+			} else {
+				result[key] = [item]
 			}
 		}
 		return result

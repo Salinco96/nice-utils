@@ -35,4 +35,6 @@ export type MaybeFunction<
 
 export type Primitive = bigint | boolean | number | string | null | undefined
 
+export type StringEnum<T extends string> = Record<string, T>
+
 export type ToString<T extends Primitive> = `${T}`
