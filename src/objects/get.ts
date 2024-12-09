@@ -1,8 +1,13 @@
-import type { AnyRecord, Key } from "../types/types"
-
-export function get<T extends AnyRecord, K extends Key<T>>(
-	object: T,
+export function get<K extends number | string | symbol, S>(
 	key: K,
-): T[K] {
-	return object[key]
+): <T extends Partial<Record<K, S | null>>>(subject: T) => T[K]
+
+export function get<T extends object, K extends keyof T>(
+	key: K,
+): (subject: T) => T[K]
+
+export function get<T extends object, K extends keyof T>(
+	key: K,
+): (subject: T) => T[K] {
+	return (subject: T) => subject[key]
 }

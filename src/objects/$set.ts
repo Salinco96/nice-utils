@@ -1,8 +1,8 @@
-import type { AnyRecord, Defined, Key } from "../types/types"
+import type { AnyRecord, Defined } from "../types/types"
 
 export function $set<
 	T extends AnyRecord,
-	K extends Key<T>,
+	K extends keyof T,
 	V extends T[K] = Defined<T[K]>,
 >(object: T, key: K, value: V): V {
 	if (value === undefined) {

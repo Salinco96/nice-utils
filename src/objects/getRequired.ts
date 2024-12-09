@@ -1,13 +1,24 @@
 import { assert } from "../errors/assert"
 import { isDefined } from "../types/isDefined"
-import type { AnyRecord, Defined, Key } from "../types/types"
+import type { Defined } from "../types/types"
 
-export function getRequired<T extends AnyRecord, K extends Key<T>>(
-	object: T,
+export function getRequired<K extends number | string | symbol, S>(
 	key: K,
 	message?: string,
-): Defined<T[K]> {
-	const value = object[key]
-	assert(isDefined(value), message || `Missing field "${key}"`)
-	return value
+): <T extends Partial<Record<K, S | null>>>(subject: T) => Defined<T[K]>
+
+export function getRequired<T extends object, K extends keyof T>(
+	key: K,
+	message?: string,
+): (subject: T) => Defined<T[K]>
+
+export function getRequired<T extends object, K extends keyof T>(
+	key: K,
+	message?: string,
+): (subject: T) => Defined<T[K]> {
+	return (subject: T) => {
+		const value = subject[key]
+		assert(isDefined(value), message || `Missing field "${key.toString()}"`)
+		return value
+	}
 }

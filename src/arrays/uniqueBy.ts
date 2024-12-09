@@ -1,6 +1,4 @@
-import type { Primitive } from "../types/types"
-
-export function uniqueBy<T, S extends Primitive>(
+export function uniqueBy<T, S>(
 	array: ReadonlyArray<T>,
 	fn: (value: T) => S,
 ): T[] {

@@ -23,7 +23,9 @@ export type EmptyRecord = Record<never, never>
 
 export type Hex = `0x${string}`
 
-export type Key<T extends AnyRecord> = keyof T & (number | string)
+export type IterableKey<T extends AnyRecord> =
+	| (keyof T & string)
+	| ToString<keyof T & number>
 
 export type Maybe<T> = T | undefined
 
@@ -37,4 +39,4 @@ export type Primitive = bigint | boolean | number | string | null | undefined
 
 export type StringEnum<T extends string> = Record<string, T>
 
-export type ToString<T extends Primitive> = `${T}`
+export type ToString<T extends Primitive> = T extends string ? T : `${T}`

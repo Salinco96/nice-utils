@@ -1,12 +1,23 @@
 import { resolve } from "../functions/resolve"
 import { isDefined } from "../types/isDefined"
-import type { AnyRecord, Defined, Key, MaybeFunction } from "../types/types"
+import type { Defined, MaybeFunction } from "../types/types"
 
-export function getElse<
-	T extends AnyRecord,
-	K extends Key<T>,
-	V = Defined<T[K]>,
->(object: T, key: K, defaultValue: MaybeFunction<V>): Defined<T[K]> | V {
-	const value = object[key]
-	return isDefined(value) ? value : resolve(defaultValue)
+export function getElse<K extends number | string | symbol, S>(
+	key: K,
+	defaultValue: MaybeFunction<S>,
+): <T extends Partial<Record<K, S | null>>>(subject: T) => Defined<T[K]> | S
+
+export function getElse<T extends object, K extends keyof T, D = Defined<T[K]>>(
+	key: K,
+	defaultValue: MaybeFunction<D>,
+): (subject: T) => Defined<T[K]> | D
+
+export function getElse<T extends object, K extends keyof T>(
+	key: K,
+	defaultValue: MaybeFunction<T[K]>,
+): (subject: T) => T[K] {
+	return (subject: T) => {
+		const value = subject[key]
+		return isDefined(value) ? value : resolve(defaultValue)
+	}
 }

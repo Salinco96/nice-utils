@@ -1,15 +1,7 @@
-import type { ToString } from "../types/types"
+import type { AnyRecord, IterableKey } from "../types/types"
 
-export function keys<K extends string>(
-	object: Readonly<Partial<Record<K, unknown>>>,
-): K[]
-
-export function keys<K extends number | string>(
-	object: Readonly<Partial<Record<K, unknown>>>,
-): ToString<K>[]
-
-export function keys<K extends string>(
-	object: Readonly<Partial<Record<K, unknown>>>,
-): K[] {
-	return Object.keys(object) as K[]
+export function keys<T extends AnyRecord>(object: T): IterableKey<T>[] {
+	return (Object.keys(object) as IterableKey<T>[]).filter(
+		key => object[key] !== undefined,
+	)
 }

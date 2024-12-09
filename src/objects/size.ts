@@ -1,5 +1,6 @@
 import type { AnyRecord } from "../types/types"
+import { keys } from "./keys"
 
 export function size(object: AnyRecord): number {
-	return Object.keys(object).length
+	return keys(object).length
 }
