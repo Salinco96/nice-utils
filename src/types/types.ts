@@ -12,6 +12,12 @@ export type AnyParameters = any[]
 
 export type AnyRecord = Partial<Record<number | string, unknown>>
 
+export type Condition<T> =
+	| ((value: T) => boolean)
+	| (T extends ReadonlyArray<unknown>
+			? { length?: number | Condition<number> }
+			: { [K in keyof T]?: (T[K] & Primitive) | Condition<T[K]> })
+
 export type Constructor<
 	T extends object,
 	Q extends AnyParameters = AnyParameters,
@@ -21,7 +27,15 @@ export type Defined<T> = Exclude<T, undefined>
 
 export type EmptyRecord = Record<never, never>
 
+export type Getter<T, R = unknown> =
+	| ((value: T) => R)
+	| { [K in keyof T]-?: IfExtends<T[K], R, K> }[keyof T]
+
 export type Hex = `0x${string}`
+
+export type IfExtends<A, B, T, F = never> = [A] extends [B] ? T : F
+
+export type IfIntersects<A, B, T, F = never> = A & B extends never ? F : T
 
 export type IterableKey<T extends AnyRecord> =
 	| (keyof T & string)
